@@ -21,6 +21,7 @@
 		200AB35118848BF2002CCAD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200AB33318848BF1002CCAD7 /* UIKit.framework */; };
 		200AB35918848BF2002CCAD7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 200AB35718848BF2002CCAD7 /* InfoPlist.strings */; };
 		200AB35B18848BF2002CCAD7 /* RosterAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 200AB35A18848BF2002CCAD7 /* RosterAppTests.m */; };
+		200AB3661884941C002CCAD7 /* Details.m in Sources */ = {isa = PBXBuildFile; fileRef = 200AB3651884941C002CCAD7 /* Details.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		200AB35618848BF2002CCAD7 /* RosterAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RosterAppTests-Info.plist"; sourceTree = "<group>"; };
 		200AB35818848BF2002CCAD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		200AB35A18848BF2002CCAD7 /* RosterAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RosterAppTests.m; sourceTree = "<group>"; };
+		200AB3641884941C002CCAD7 /* Details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Details.h; sourceTree = "<group>"; };
+		200AB3651884941C002CCAD7 /* Details.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Details.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				200AB34118848BF1002CCAD7 /* Main.storyboard */,
 				200AB34418848BF1002CCAD7 /* CAMViewController.h */,
 				200AB34518848BF1002CCAD7 /* CAMViewController.m */,
+				200AB3641884941C002CCAD7 /* Details.h */,
+				200AB3651884941C002CCAD7 /* Details.m */,
 				200AB34718848BF2002CCAD7 /* Images.xcassets */,
 				200AB33618848BF1002CCAD7 /* Supporting Files */,
 			);
@@ -252,6 +257,7 @@
 			files = (
 				200AB34618848BF1002CCAD7 /* CAMViewController.m in Sources */,
 				200AB34018848BF1002CCAD7 /* CAMAppDelegate.m in Sources */,
+				200AB3661884941C002CCAD7 /* Details.m in Sources */,
 				200AB33C18848BF1002CCAD7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

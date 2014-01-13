@@ -1,5 +1,5 @@
 //
-//  CAMViewController.h
+//  Details.h
 //  RosterApp
 //
 //  Created by Chris Meehan on 1/13/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CAMViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface Details : UIViewController
 
 @end
