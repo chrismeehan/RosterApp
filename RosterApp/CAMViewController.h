@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Student.h"
+#import "Teacher.h"
+#import "DataSource.h"
 
-@interface CAMViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface CAMViewController : UIViewController<UITableViewDelegate>
+
+-(IBAction)sortWasHit:(id)sender;
 
 @end
