@@ -83,6 +83,8 @@
     UITableViewCell* someCell = (UITableViewCell*)sender;
     
     if ([[segue identifier] isEqualToString:@"MySegue"]){
+        Details *detailsVC = [segue destinationViewController];
+        detailsVC.someString = someCell.textLabel.text;
         self.navigationItem.title = someCell.textLabel.text;
     }
     

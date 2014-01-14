@@ -8,6 +8,16 @@
 
 #import "Details.h"
 
+
+
 @implementation Details
+@synthesize nameHoldingLabel = _nameHoldingLabel;
+@synthesize someString = _someString;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.nameHoldingLabel.text = self.someString;
+}
 
 @end

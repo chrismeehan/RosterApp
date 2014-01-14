@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface Details : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *nameHoldingLabel;
+@property (strong, nonatomic) NSString* someString;
 
 @end
