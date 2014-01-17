@@ -33,24 +33,7 @@
     [self.currentStudent setRed:self.slider1.value abdBlue:self.slider2.value andGreen:self.slider3.value];
 }
 
-- (IBAction)sliderRedMoved:(id)sender{
-    self.label1.text = [NSString stringWithFormat:@"%f",self.slider1.value];
-    UIColor* tempColor =  [[UIColor alloc]initWithRed:self.slider1.value green:self.slider2.value blue:self.slider3.value alpha:1.0];
-    [self.view setBackgroundColor:tempColor];
-}
 
-- (IBAction)sliderGreenMoved:(id)sender{
-    self.label2.text = [NSString stringWithFormat:@"%f",self.slider2.value];
-    [self.view setBackgroundColor:[UIColor blueColor]];
-    UIColor* tempColor =  [[UIColor alloc]initWithRed:self.slider1.value green:self.slider2.value blue:self.slider3.value alpha:1.0];
-    [self.view setBackgroundColor:tempColor];
-}
-
-- (IBAction)sliderBlueMoved:(id)sender{
-    self.label3.text = [NSString stringWithFormat:@"%f",self.slider3.value];
-    UIColor* tempColor =  [[UIColor alloc]initWithRed:self.slider1.value green:self.slider2.value blue:self.slider3.value alpha:1.0];
-    [self.view setBackgroundColor:tempColor];
-}
 
 - (void)viewDidLoad
 {
@@ -59,7 +42,6 @@
     self.slider2.value = [self.currentStudent getBlue];
     self.slider3.value = [self.currentStudent getGreen];
     UIColor* aColor = [[UIColor alloc]initWithRed:self.slider1.value green:self.slider2.value blue:self.slider3.value alpha:1.0];
-    [self.view setBackgroundColor:aColor];
     self.label1.text = [NSString stringWithFormat:@"%f",self.slider1.value];
     self.label2.text = [NSString stringWithFormat:@"%f",self.slider2.value];
     self.label3.text = [NSString stringWithFormat:@"%f",self.slider3.value];
