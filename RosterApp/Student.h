@@ -10,5 +10,6 @@
 #import "Person.h"
 
 @interface Student :Person
-
+    @property (strong,nonatomic) NSString* twitterName;
+    @property (strong,nonatomic) NSString* githubName;
 @end

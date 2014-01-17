@@ -21,13 +21,13 @@
 		200AB35118848BF2002CCAD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200AB33318848BF1002CCAD7 /* UIKit.framework */; };
 		200AB35918848BF2002CCAD7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 200AB35718848BF2002CCAD7 /* InfoPlist.strings */; };
 		200AB35B18848BF2002CCAD7 /* RosterAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 200AB35A18848BF2002CCAD7 /* RosterAppTests.m */; };
-		200AB3661884941C002CCAD7 /* Details.m in Sources */ = {isa = PBXBuildFile; fileRef = 200AB3651884941C002CCAD7 /* Details.m */; };
+		200AB3661884941C002CCAD7 /* DetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 200AB3651884941C002CCAD7 /* DetailsVC.m */; };
 		200CE98E1885DBFB0061AF5E /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 200CE98D1885DBFB0061AF5E /* Student.m */; };
 		200CE9911885DCAE0061AF5E /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 200CE9901885DCAE0061AF5E /* DataSource.m */; };
 		200CE9941885DDB60061AF5E /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 200CE9931885DDB60061AF5E /* Person.m */; };
 		200CE9971885DF4F0061AF5E /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 200CE9961885DF4F0061AF5E /* Teacher.m */; };
-		200CE99A1885E2720061AF5E /* farTarget.png in Resources */ = {isa = PBXBuildFile; fileRef = 200CE9991885E2720061AF5E /* farTarget.png */; };
 		200CE99C1885EDCE0061AF5E /* Bootcamp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 200CE99B1885EDCE0061AF5E /* Bootcamp.plist */; };
+		200CEB6F1888DCB70061AF5E /* NoPhotoIcon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 200CEB6E1888DCB70061AF5E /* NoPhotoIcon.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +60,8 @@
 		200AB35618848BF2002CCAD7 /* RosterAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RosterAppTests-Info.plist"; sourceTree = "<group>"; };
 		200AB35818848BF2002CCAD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		200AB35A18848BF2002CCAD7 /* RosterAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RosterAppTests.m; sourceTree = "<group>"; };
-		200AB3641884941C002CCAD7 /* Details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Details.h; sourceTree = "<group>"; };
-		200AB3651884941C002CCAD7 /* Details.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Details.m; sourceTree = "<group>"; };
+		200AB3641884941C002CCAD7 /* DetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsVC.h; sourceTree = "<group>"; };
+		200AB3651884941C002CCAD7 /* DetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsVC.m; sourceTree = "<group>"; };
 		200CE98C1885DBFB0061AF5E /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		200CE98D1885DBFB0061AF5E /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		200CE98F1885DCAE0061AF5E /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
@@ -70,8 +70,8 @@
 		200CE9931885DDB60061AF5E /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		200CE9951885DF4F0061AF5E /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
 		200CE9961885DF4F0061AF5E /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
-		200CE9991885E2720061AF5E /* farTarget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = farTarget.png; sourceTree = "<group>"; };
 		200CE99B1885EDCE0061AF5E /* Bootcamp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Bootcamp.plist; sourceTree = "<group>"; };
+		200CEB6E1888DCB70061AF5E /* NoPhotoIcon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NoPhotoIcon.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,10 +139,10 @@
 				200AB34518848BF1002CCAD7 /* CAMViewController.m */,
 				200CE98F1885DCAE0061AF5E /* DataSource.h */,
 				200CE9901885DCAE0061AF5E /* DataSource.m */,
-				200AB3641884941C002CCAD7 /* Details.h */,
-				200AB3651884941C002CCAD7 /* Details.m */,
+				200AB3641884941C002CCAD7 /* DetailsVC.h */,
+				200AB3651884941C002CCAD7 /* DetailsVC.m */,
+				200CEB6E1888DCB70061AF5E /* NoPhotoIcon.jpeg */,
 				200CE99B1885EDCE0061AF5E /* Bootcamp.plist */,
-				200CE9991885E2720061AF5E /* farTarget.png */,
 				200AB34718848BF2002CCAD7 /* Images.xcassets */,
 				200AB33618848BF1002CCAD7 /* Supporting Files */,
 			);
@@ -268,8 +268,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				200CE99A1885E2720061AF5E /* farTarget.png in Resources */,
 				200AB34818848BF2002CCAD7 /* Images.xcassets in Resources */,
+				200CEB6F1888DCB70061AF5E /* NoPhotoIcon.jpeg in Resources */,
 				200AB33A18848BF1002CCAD7 /* InfoPlist.strings in Resources */,
 				200CE99C1885EDCE0061AF5E /* Bootcamp.plist in Resources */,
 				200AB34318848BF1002CCAD7 /* Main.storyboard in Resources */,
@@ -297,7 +297,7 @@
 				200CE9941885DDB60061AF5E /* Person.m in Sources */,
 				200CE9911885DCAE0061AF5E /* DataSource.m in Sources */,
 				200CE98E1885DBFB0061AF5E /* Student.m in Sources */,
-				200AB3661884941C002CCAD7 /* Details.m in Sources */,
+				200AB3661884941C002CCAD7 /* DetailsVC.m in Sources */,
 				200AB33C18848BF1002CCAD7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

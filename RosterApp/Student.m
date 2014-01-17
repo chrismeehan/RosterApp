@@ -16,6 +16,7 @@
 @end
 
 @implementation Student
-
+@synthesize twitterName= _twitterName;
+@synthesize githubName= _githubName;
 
 @end

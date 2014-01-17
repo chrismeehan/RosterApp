@@ -7,7 +7,7 @@
 //
 
 #import "CAMViewController.h"
-#import "Details.h"
+#import "DetailsVC.h"
 
 
 @interface CAMViewController ()
@@ -19,8 +19,12 @@
 
 @implementation CAMViewController
 
-- (void)viewDidLoad
-{
+-(void)viewWillAppear:(BOOL)animated{
+    [self.myTableView reloadData];
+}
+
+
+- (void)viewDidLoad{
     [super viewDidLoad];
 
     self.theDataSource = [[DataSource alloc]init];
@@ -49,20 +53,25 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    UITableViewCell* someCell = (UITableViewCell*)sender;
-    
     if ([[segue identifier] isEqualToString:@"MySegue"]){
-        Details *detailsVC = [segue destinationViewController];
+        DetailsVC *detailsVC = [segue destinationViewController]; //This is a pointer to the destination view controller.
+        UITableViewCell* someCell = (UITableViewCell*)sender;
+        NSString* nameString = someCell.textLabel.text;
+        NSLog(@"name is %@" , nameString);
+        for(Student* thisStudent in self.theDataSource.studentArray){
+            if([thisStudent.name isEqualToString: nameString]){
+                detailsVC.currentStudent = thisStudent;
+            }
+        }
         detailsVC.someString = someCell.textLabel.text;
         self.navigationItem.title = someCell.textLabel.text;
+        [someCell setSelected:NO];
     }
-    [someCell setSelected:NO];
 }
 
 
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

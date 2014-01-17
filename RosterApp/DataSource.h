@@ -12,6 +12,10 @@
 
 @interface DataSource : NSObject<UITableViewDataSource>
 
+@property (strong, nonatomic) NSMutableArray *studentArray;
+@property (strong, nonatomic) NSArray *teacherArray;
+@property (strong,nonatomic) NSDictionary* photoDict;
+
 -(void)sort;
 
 @end

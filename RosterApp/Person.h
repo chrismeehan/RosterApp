@@ -8,10 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Person : NSObject
+@interface Person : NSObject{
+    CGFloat redValue;
+    CGFloat greenValue;
+    CGFloat blueValue;
+    
+}
 
 @property (strong,nonatomic) NSString* name;
 @property (strong,nonatomic) UIImage* uII;
+
+-(void)setRed:(CGFloat)red abdBlue:(CGFloat)blue andGreen:(CGFloat)green;
+-(UIColor*)getRGBUIColor;
+
+-(CGFloat)getRed;
+-(CGFloat)getBlue;
+-(CGFloat)getGreen;
 
 -(id)initWithName:(NSString*)name;
 -(id)initWithName:(NSString*)name andImage:(UIImage*)image;
