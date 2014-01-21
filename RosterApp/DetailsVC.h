@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Student.h"
+#import "DataSource.h"
 
-@interface DetailsVC : UIViewController<UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UIScrollViewDelegate>
+@interface DetailsVC : UIViewController<UITextFieldDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UIScrollViewDelegate>{
+    int studentsIndex;
+}
+
 @property (weak, nonatomic) IBOutlet UIImageView *uIIVPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *gitLabel;
 @property (weak, nonatomic) IBOutlet UILabel *twitLabel;
@@ -24,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *githubTextField;
 @property (weak, nonatomic) IBOutlet UILabel *nameHoldingLabel;
 @property (strong, nonatomic) NSString* someString;
+@property (strong, nonatomic) DataSource* theDataSource;
 @property (nonatomic) UIImagePickerController *imagePickerController2; //This is the controller that will take the picture.
 @property (strong, nonatomic) CALayer* myViewsLayer;
 @property(strong,nonatomic) UIScrollView* scrollView ;
@@ -31,6 +36,7 @@
 - (IBAction)sliderRedMoved:(id)sender;
 - (IBAction)sliderBlueMoved:(id)sender;
 - (IBAction)sliderGreenMoved:(id)sender;
-- (IBAction)saveAll:(id)sender;
+- (IBAction)saveAllProperties:(id)sender;
+-(void)setStudentsIndex:(int)theIndex;
 
 @end

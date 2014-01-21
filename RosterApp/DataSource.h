@@ -10,12 +10,17 @@
 #import "Student.h"
 #import "Teacher.h"
 
-@interface DataSource : NSObject<UITableViewDataSource>
+@interface DataSource : NSObject<UITableViewDataSource>{
+    NSString* docDirPathString;   
+    NSMutableArray * arrayOfDictionariesFromPList;
+
+}
 
 @property (strong, nonatomic) NSMutableArray *studentArray;
 @property (strong, nonatomic) NSArray *teacherArray;
 @property (strong,nonatomic) NSDictionary* photoDict;
 
 -(void)sort;
+-(void)changeThePListWithEditedStudent:(Student*)changedStudent atIndex:(int)theindex;
 
 @end

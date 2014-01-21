@@ -6,6 +6,18 @@
 //  Copyright (c) 2014 Chris Meehan. All rights reserved.
 //
 
+
+/*
+
+
+
+Save all changes made to your student model objects. (The only thing left to save is just 3 floats for rgb and 2 string account names.)
+
+*/
+
+
+
+
 #import "CAMViewController.h"
 #import "DetailsVC.h"
 
@@ -54,9 +66,14 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"MySegue"]){
-        DetailsVC *detailsVC = [segue destinationViewController]; //This is a pointer to the destination view controller.
+        
         UITableViewCell* someCell = (UITableViewCell*)sender;
         NSString* nameString = someCell.textLabel.text;
+        int i =[self.myTableView indexPathForCell:someCell].row;
+        DetailsVC *detailsVC = [segue destinationViewController]; //This is a pointer to the destination view controller.
+        detailsVC.theDataSource = self.theDataSource; //Give our DetailsVC a pointer to our datasource, incase he wants to save anything.
+        [detailsVC setStudentsIndex:i];
+
         NSLog(@"name is %@" , nameString);
         for(Student* thisStudent in self.theDataSource.studentArray){
             if([thisStudent.name isEqualToString: nameString]){
@@ -75,5 +92,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
 
 @end

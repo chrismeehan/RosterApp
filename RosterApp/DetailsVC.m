@@ -27,10 +27,31 @@
 @synthesize label3=_label3;
 @synthesize scrollView;
 @synthesize uIIVPhoto;
+@synthesize theDataSource;
 
 
-- (IBAction)saveAll:(id)sender{
-    [self.currentStudent setRed:self.slider1.value abdBlue:self.slider2.value andGreen:self.slider3.value];
+-(void)setStudentsIndex:(int)theIndex{
+    studentsIndex = theIndex;
+}
+
+
+- (IBAction)saveAllProperties:(id)sender{
+    
+    // First, save them to this student.
+    [self.currentStudent setRed:self.slider1.value andGreen:self.slider2.value andBlue:self.slider3.value];
+    self.currentStudent.twitterName = twitterTextField.text;
+    self.currentStudent.githubName = githubTextField.text;
+    
+    
+    //Then write an array of Dictionarys to the pList.
+    
+    
+    
+    // Here is where you find a way to call a method back to the object that created me, and pass him my Student.
+    
+    [self.theDataSource changeThePListWithEditedStudent:self.currentStudent atIndex:studentsIndex];
+    
+    
 }
 
 - (IBAction)sliderRedMoved:(id)sender{
@@ -55,6 +76,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.twitterTextField.text = self.currentStudent.twitterName;
+    self.githubTextField.text = self.currentStudent.githubName;
     self.slider1.value = [self.currentStudent getRed];
     self.slider2.value = [self.currentStudent getBlue];
     self.slider3.value = [self.currentStudent getGreen];
@@ -148,10 +171,9 @@
     [self dismissViewControllerAnimated:YES completion:^{
         //Once it closes, then this huge completeion block gets called:
         UIImage *editedImage = [info objectForKey:UIImagePickerControllerOriginalImage];// Create a uiimage to hold this pic the user wants.
+        editedImage = [self squareImageWithImage:editedImage scaledToSize:CGSizeMake(1000, 1000)];
         self.currentStudent.uII = editedImage; // Set the student's image to the image returned.
         [self saveCurrentStudentsUIImage:editedImage];
-        // This saves the user's pic to a document directory
-        [self saveCurrentStudentsUIImage:self.currentStudent.uII];
         // Tell the calayer that shows the pic, that it needs to load this pic now!
         [self.uIIVPhoto setImage:self.currentStudent.uII];
         self.myViewsLayer.contents = self.currentStudent.uII;
@@ -182,6 +204,7 @@
 //Save the pic to the documents array
 -(void)saveCurrentStudentsUIImage:(UIImage*)anImage{
     if (anImage != nil){
+        
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString* studentNameString = self.currentStudent.name;
@@ -204,6 +227,82 @@
     return NO;
 }
 
+
+
+-(UIImage*)imageCrop:(UIImage*)original{
+    UIImage *ret = nil;
+    // This calculates the crop area.
+    float originalWidth  = original.size.width;  ///say 30
+    float originalHeight = original.size.height; /// say 50
+    NSLog(@"origin width is: %f and height is: %f",originalWidth,originalHeight);
+
+    CGRect cropSquare;
+    if(originalWidth<originalHeight){
+        float totalLenghtLeftoverAfterACrop = originalHeight-originalWidth;
+        cropSquare = CGRectMake(0, totalLenghtLeftoverAfterACrop/2, originalWidth  , originalWidth);
+        NSLog(@"this");
+    }
+    else if (originalWidth<originalHeight){
+        float totalLenghtLeftoverAfterACrop = originalWidth - originalHeight;
+        cropSquare = CGRectMake(totalLenghtLeftoverAfterACrop/2, 0, originalHeight  , originalHeight);
+        NSLog(@"this");
+    }
+    else{
+        return original;
+    }
+    // This performs the image cropping.
+    CGImageRef imageRef = CGImageCreateWithImageInRect([original CGImage], cropSquare);
+    ret = [UIImage imageWithCGImage:imageRef];
+    //ret = [UIImage imageWithCGImage:imageRef scale:original.scale orientation:original.imageOrientation];
+    CGImageRelease(imageRef);
+    NSLog(@"before i return, width is: %f and height is: %f",ret.size.width,ret.size.height);
+    return ret;
+}
+
+- (UIImage *)squareImageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    
+    NSLog(@"origin width is: %f and height is: %f",image.size.width , image.size.height);
+
+    double ratio;
+    double delta;
+    CGPoint offset;
+    
+    //make a new square size, that is the resized imaged width
+    CGSize sz = CGSizeMake(newSize.width, newSize.width);
+
+    //figure out if the picture is landscape or portrait, then
+    //calculate scale factor and offset
+    if (image.size.width > image.size.height) {
+        ratio = newSize.width / image.size.width;
+        delta = (ratio*image.size.width - ratio*image.size.height);
+        offset = CGPointMake(delta/2, 0);
+    } else {
+        ratio = newSize.width / image.size.height;
+        delta = (ratio*image.size.height - ratio*image.size.width);
+        offset = CGPointMake(0, delta/2);
+    }
+    
+    //make the final clipping rect based on the calculated values
+    CGRect clipRect = CGRectMake(-offset.x, -offset.y,
+                                 (ratio * image.size.width) + delta,
+                                 (ratio * image.size.height) + delta);
+    
+    
+    //start a new context, with scale factor 0.0 so retina displays get
+    //high quality image
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+        UIGraphicsBeginImageContextWithOptions(sz, YES, 0.0);
+    } else {
+        UIGraphicsBeginImageContext(sz);
+    }
+    UIRectClip(clipRect);
+    [image drawInRect:clipRect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSLog(@"before i return, width is: %f and height is: %f",newImage.size.width,newImage.size.height);
+
+    return newImage;
+}
 
 
 @end

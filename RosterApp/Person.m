@@ -24,7 +24,7 @@
     return self;
 }
 
--(void)setRed:(CGFloat)red abdBlue:(CGFloat)blue andGreen:(CGFloat)green{
+-(void)setRed:(CGFloat)red andGreen:(CGFloat)green andBlue:(CGFloat)blue{
     redValue = red;
     blueValue = blue;
     greenValue = green;
